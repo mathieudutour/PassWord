@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" manifest="site.manifest">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>PassWord Wallet
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="Mathieu Dutour">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Le styles -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ios/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/ios/icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/ios/icon-72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/ios/icon@2x.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/ios/icon-72@2x.png" />
+    <link href="assets/ios/startup-320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <link href="assets/ios/startup.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+  </head>
+  <body>
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="navbar-header">
+	    <a class="navbar-brand" href="#">PassWord Wallet</a>
+	  </div>
+	</nav>
+	<div class="container">
+      <div id="message"></div>
+      <div id="connexion">
+	      <form name="Form" id="Form" action="ajax.php" method="post">
+			  <fieldset>
+			    <legend id ="title">Connexion</legend>
+				    <div class="form-group">
+		              <input class="form-control" id="pass" name="pass" type="password" placeholder="Password" autofocus="autofocus"/>
+		              <input id="passhide" name="passhide" type="hidden" value="false"/>
+		          </div>
+		          <input type="submit" id="submit" name="submit" value="Connexion" class="btn btn-primary btn-lg" />
+			  </fieldset>
+			</form>
+      </div>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">    	
+	    $(document).ready(function() {
+			$('#submit').click(function() {
+			
+				var action = $("#Form").attr('action');				
+				var	form_data = {
+					password: $("#pass").val(),
+					salt : $("#passhide").val(),
+					is_ajax: 1
+				};
+				
+				$.ajax({
+					type: "POST",
+					url: action,
+					data: form_data,
+					success: function(response)
+					{
+						if(response == 'success')
+						{
+							$("div#message").html("<div class=\"alert alert-success fade in alert-dismissable\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button><strong>Success !</strong> You are now connected.</div>");
+							$("#passhide").attr("value",$("#pass").val());
+							$("#pass").val('');
+							$("#pass").attr("placeholder","Website's ID");
+							$("#submit").attr("value","Get the password");
+							$("#title").html("Get the password");	
+							$("#titleinput").html("Seed");						
+						}
+						else if(response == 'fail')
+						{
+									$("div#message").html("<div class='alert alert-danger fade in alert-dismissable'><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button><strong>Something went wrong !</strong> Please try again.</div>");
+		          					document.getElementById('control-group').className='control-group error';
+						}
+						else
+						{	
+		          				$("div#message").html("<div class='alert alert-info fade in'>"+response+"</div>");	
+		          				$("div#message").select();
+						}
+					}
+				});
+				
+				return false;
+			});
+			
+						
+		});
+	</script>
+      </body>
+</html>
