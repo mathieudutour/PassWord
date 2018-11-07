@@ -1,7 +1,7 @@
 var CACHE_NAME = 'password-manager-cache-v1';
 var urlsToCache = [
   './',
-  './assets/css/ui.almost-flat.css',
+  './assets/css/uikit.almost-flat.css',
   './assets/js/password.js'
 ];
 
