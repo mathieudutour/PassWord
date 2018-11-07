@@ -1,20 +1,19 @@
-function utf8_encode( string ) {
-	return unescape( encodeURIComponent( string ) );
-}
-function md5(str) {
-  var xl;
+declare const unescape: (s: string) => string
 
-  var rotateLeft = function(lValue, iShiftBits) {
+function utf8_encode( s: string ) {
+	return unescape( encodeURIComponent( s ) );
+}
+function md5(str: string) {
+  function rotateLeft(lValue: number, iShiftBits: number) {
     return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
   };
 
-  var addUnsigned = function(lX, lY) {
-    var lX4, lY4, lX8, lY8, lResult;
-    lX8 = (lX & 0x80000000);
-    lY8 = (lY & 0x80000000);
-    lX4 = (lX & 0x40000000);
-    lY4 = (lY & 0x40000000);
-    lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
+  function addUnsigned(lX: number, lY: number) {
+    let lX8 = (lX & 0x80000000);
+    let lY8 = (lY & 0x80000000);
+    let lX4 = (lX & 0x40000000);
+    let lY4 = (lY & 0x40000000);
+    let lResult = (lX & 0x3FFFFFFF) + (lY & 0x3FFFFFFF);
     if (lX4 & lY4) {
       return (lResult ^ 0x80000000 ^ lX8 ^ lY8);
     }
@@ -29,48 +28,48 @@ function md5(str) {
     }
   };
 
-  var _F = function(x, y, z) {
+  function _F(x: number, y: number, z: number) {
     return (x & y) | ((~x) & z);
   };
-  var _G = function(x, y, z) {
+  function _G(x: number, y: number, z: number) {
     return (x & z) | (y & (~z));
   };
-  var _H = function(x, y, z) {
+  function _H(x: number, y: number, z: number) {
     return (x ^ y ^ z);
   };
-  var _I = function(x, y, z) {
+  function _I(x: number, y: number, z: number) {
     return (y ^ (x | (~z)));
   };
 
-  var _FF = function(a, b, c, d, x, s, ac) {
+  function _FF(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = addUnsigned(a, addUnsigned(addUnsigned(_F(b, c, d), x), ac));
     return addUnsigned(rotateLeft(a, s), b);
   };
 
-  var _GG = function(a, b, c, d, x, s, ac) {
+  function _GG(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = addUnsigned(a, addUnsigned(addUnsigned(_G(b, c, d), x), ac));
     return addUnsigned(rotateLeft(a, s), b);
   };
 
-  var _HH = function(a, b, c, d, x, s, ac) {
+  function _HH(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = addUnsigned(a, addUnsigned(addUnsigned(_H(b, c, d), x), ac));
     return addUnsigned(rotateLeft(a, s), b);
   };
 
-  var _II = function(a, b, c, d, x, s, ac) {
+  function _II(a: number, b: number, c: number, d: number, x: number, s: number, ac: number) {
     a = addUnsigned(a, addUnsigned(addUnsigned(_I(b, c, d), x), ac));
     return addUnsigned(rotateLeft(a, s), b);
   };
 
-  var convertToWordArray = function(str) {
-    var lWordCount;
-    var lMessageLength = str.length;
-    var lNumberOfWords_temp1 = lMessageLength + 8;
-    var lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
-    var lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
-    var lWordArray = new Array(lNumberOfWords - 1);
-    var lBytePosition = 0;
-    var lByteCount = 0;
+  function convertToWordArray(str: string) {
+    let lWordCount;
+    const lMessageLength = str.length;
+    const lNumberOfWords_temp1 = lMessageLength + 8;
+    const lNumberOfWords_temp2 = (lNumberOfWords_temp1 - (lNumberOfWords_temp1 % 64)) / 64;
+    const lNumberOfWords = (lNumberOfWords_temp2 + 1) * 16;
+    const lWordArray: number[] = new Array(lNumberOfWords - 1);
+    let lBytePosition = 0;
+    let lByteCount = 0;
     while (lByteCount < lMessageLength) {
       lWordCount = (lByteCount - (lByteCount % 4)) / 4;
       lBytePosition = (lByteCount % 4) * 8;
@@ -85,11 +84,11 @@ function md5(str) {
     return lWordArray;
   };
 
-  var wordToHex = function(lValue) {
-    var wordToHexValue = '',
-      wordToHexValue_temp = '',
-      lByte, lCount;
-    for (lCount = 0; lCount <= 3; lCount++) {
+  function wordToHex(lValue: number) {
+    let wordToHexValue = ''
+    let wordToHexValue_temp = ''
+    let lByte
+    for (let lCount = 0; lCount <= 3; lCount++) {
       lByte = (lValue >>> (lCount * 8)) & 255;
       wordToHexValue_temp = '0' + lByte.toString(16);
       wordToHexValue = wordToHexValue + wordToHexValue_temp.substr(wordToHexValue_temp.length - 2, 2);
@@ -97,8 +96,7 @@ function md5(str) {
     return wordToHexValue;
   };
 
-  var x = [],
-    k, AA, BB, CC, DD, a, b, c, d, S11 = 7,
+  var S11 = 7,
     S12 = 12,
     S13 = 17,
     S14 = 22,
@@ -115,19 +113,18 @@ function md5(str) {
     S43 = 15,
     S44 = 21;
 
-  str = this.utf8_encode(str);
-  x = convertToWordArray(str);
-  a = 0x67452301;
-  b = 0xEFCDAB89;
-  c = 0x98BADCFE;
-  d = 0x10325476;
+  str = utf8_encode(str);
+  let x = convertToWordArray(str);
+  let a = 0x67452301;
+  let b = 0xEFCDAB89;
+  let c = 0x98BADCFE;
+  let d = 0x10325476;
 
-  xl = x.length;
-  for (k = 0; k < xl; k += 16) {
-    AA = a;
-    BB = b;
-    CC = c;
-    DD = d;
+  for (let k = 0; k < x.length; k += 16) {
+    let AA = a;
+    let BB = b;
+    let CC = c;
+    let DD = d;
     a = _FF(a, b, c, d, x[k + 0], S11, 0xD76AA478);
     d = _FF(d, a, b, c, x[k + 1], S12, 0xE8C7B756);
     c = _FF(c, d, a, b, x[k + 2], S13, 0x242070DB);
@@ -203,22 +200,21 @@ function md5(str) {
   return temp.toLowerCase();
 };
 
-function convert(src, alphabet) {
-	var sourceBase = 16
-	var destBase = alphabet.length
+function convert(src: string, alphabet: string) {
+	var sourceBase = 16,
+		destBase = alphabet.length;
 
+	var val = 0,
+		mlt = 1;
 
-	var val = 0
-	var mlt = 1
-
-	for (var i = 0; i < src.length; i++) {
+	for (let i = 0; i < src.length; i++) {
 		val += mlt * parseInt(src[i], 16);
 		mlt *= sourceBase;
-  }
+	}
 
-	var wet = val
-	var result = ""
-	var i = 1
+	let wet = val;
+	var result = "";
+	var i = 1;
 	var digitVal = wet % destBase;
 	while (wet >= destBase) {
 		digitVal = wet % destBase;
@@ -228,7 +224,7 @@ function convert(src, alphabet) {
 		}
 		var digit = alphabet[Math.floor(digitVal)];
 		result = digit.concat(result);
-    wet /= destBase;
+		wet /= destBase;
 	}
 
 	var digit = alphabet[Math.floor(digitVal)];
@@ -237,11 +233,7 @@ function convert(src, alphabet) {
 	return result;
 }
 
-function generatePassword(pass, salt) {
-  var hash = md5(pass + salt)
-  console.log(hash)
-	return convert(
-    hash,
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-=~!@#$%^&*()_+,./<>?;:[]{}|"
-  )
+export function generate_password(pass: string, salt: string){
+	const hash=md5(pass.concat(salt));
+	return convert(hash, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-=~!@#$%^&*()_+,./<>?;:[]{}|");
 }
