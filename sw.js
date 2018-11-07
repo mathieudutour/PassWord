@@ -1,8 +1,8 @@
 var CACHE_NAME = 'password-manager-cache-v1';
 var urlsToCache = [
-  '/',
-  '/assets/css/ui.almost-flat.css',
-  '/assets/js/password.js'
+  './',
+  './assets/css/ui.almost-flat.css',
+  './assets/js/password.js'
 ];
 
 self.addEventListener('install', function(event) {

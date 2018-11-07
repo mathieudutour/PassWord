@@ -3,17 +3,17 @@
   "name": "Password Manager",
   "icons": [
     {
-      "src": "/assets/images/icon-192.png",
+      "src": "./assets/images/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/images/icon-512.png",
+      "src": "./assets/images/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/?utm_source=a2hs",
+  "start_url": "./?utm_source=a2hs",
   "background_color": "#14EBFF",
   "display": "standalone",
   "theme_color": "#14EBFF"
