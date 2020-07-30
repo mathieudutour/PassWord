@@ -1,0 +1,43 @@
+.uk-navbar {
+  background: rgb(20, 188, 255);
+  background: linear-gradient(180deg, #14ebff 0%, rgba(20, 188, 255, 1) 100%);
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+.uk-navbar:before,
+.uk-navbar:after {
+  content: ' ';
+  display: table;
+}
+.uk-navbar:after {
+  clear: both;
+}
+.uk-navbar-content,
+.uk-navbar-brand,
+.uk-navbar-toggle {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  height: 40px;
+  padding: 0 15px;
+  float: left;
+  text-shadow: 0 1px 0 #ffffff;
+}
+.uk-navbar-content:before,
+.uk-navbar-brand:before,
+.uk-navbar-toggle:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.uk-navbar-brand {
+  color: #ffffff;
+  font-size: 18px;
+}
+.uk-navbar-brand:hover,
+.uk-navbar-brand:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: none;
+}
