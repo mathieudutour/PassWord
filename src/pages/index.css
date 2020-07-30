@@ -1,0 +1,13 @@
+.download {
+  margin-top: 45px;
+  animation: fadein 0.3s ease-in;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
