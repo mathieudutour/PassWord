@@ -1,36 +1,12 @@
 .uk-navbar {
-  background: #5bc6ff;
-  box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
-  color: var(--textcolor);
+  width: 90%;
+  margin: auto;
   margin-bottom: 50px;
 }
-.uk-navbar:before,
-.uk-navbar:after {
-  content: ' ';
-  display: table;
-}
-.uk-navbar:after {
-  clear: both;
-}
-.uk-navbar-content,
-.uk-navbar-brand,
-.uk-navbar-toggle {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: block;
-  height: 60px;
-  padding: 0 15px;
-  float: left;
-}
-.uk-navbar-content:before,
-.uk-navbar-brand:before,
-.uk-navbar-toggle:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
+
 .uk-navbar-brand {
+  display: inline-block;
+  padding-top: 30px;
   color: var(--textcolor);
   font-size: 30px;
   letter-spacing: 0.5px;

@@ -13,6 +13,7 @@
   box-shadow: inset 20px 20px 60px #489dcf, inset -20px -20px 60px #62d5ff;
   -webkit-transition: all linear 0.2s;
   transition: all linear 0.2s;
+  color: var(--textcolor);
 }
 
 .uk-form input[type='text']:focus,
@@ -61,15 +62,15 @@
   display: block;
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 15px;
   margin-top: -6px;
-  font-size: 13px;
-  line-height: 13px;
-  color: #999999;
+  font-size: 15px;
+  line-height: 15px;
+  color: var(--textcolor);
   cursor: pointer;
 }
 .uk-form-password-toggle:hover {
-  color: #999999;
+  color: var(--textcolor);
   text-decoration: none;
 }
 .uk-form-password > input {
