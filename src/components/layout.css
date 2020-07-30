@@ -1,3 +1,35 @@
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+
+  --positionx: 20px;
+  --positionxopposite: -20px;
+  --positiony: 20px;
+  --positionyopposite: -20px;
+  --angle: 145deg;
+  --blur: 60px;
+  --textcolor: #001f3f;
+  --textcoloropposite: #55b9f3;
+  --basecolor: #55b9f3;
+  --darkcolor: #489dcf;
+  --lightcolor: #62d5ff;
+  --firstgradientcolor: #55b9f3;
+  --secondgradientcolor: #55b9f3;
+
+  background: var(--basecolor);
+  color: var(--textcolor);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -17,17 +49,7 @@ section,
 summary {
   display: block;
 }
-html {
-  background: rgb(20, 188, 255);
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-body {
-  background: #ffffff;
-  margin: 0;
-  height: 100vh;
-}
+
 a:focus {
   outline: thin dotted;
 }
@@ -74,20 +96,7 @@ input[type='submit'] {
   -webkit-appearance: button;
   cursor: pointer;
 }
-html {
-  font-size: 14px;
-}
-body {
-  background: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: normal;
-  line-height: 20px;
-  color: #444444;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-}
+
 @media (max-width: 767px) {
   body {
     word-wrap: break-word;

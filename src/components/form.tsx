@@ -46,7 +46,9 @@ const Form: React.FC<Props> = (props) => {
           </a>
         </div>
         <div className="uk-form-row">
-          <Button submit>Connection</Button>
+          <Button submit stickToBottom>
+            Connection
+          </Button>
         </div>
       </fieldset>
     </form>

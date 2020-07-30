@@ -1,8 +1,8 @@
 .uk-navbar {
-  background: rgb(20, 188, 255);
-  background: linear-gradient(180deg, #14ebff 0%, rgba(20, 188, 255, 1) 100%);
-  color: #ffffff;
-  margin-bottom: 15px;
+  background: #5bc6ff;
+  box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+  color: var(--textcolor);
+  margin-bottom: 50px;
 }
 .uk-navbar:before,
 .uk-navbar:after {
@@ -18,10 +18,9 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
-  height: 40px;
+  height: 60px;
   padding: 0 15px;
   float: left;
-  text-shadow: 0 1px 0 #ffffff;
 }
 .uk-navbar-content:before,
 .uk-navbar-brand:before,
@@ -32,12 +31,13 @@
   vertical-align: middle;
 }
 .uk-navbar-brand {
-  color: #ffffff;
-  font-size: 18px;
+  color: var(--textcolor);
+  font-size: 30px;
+  letter-spacing: 0.5px;
 }
 .uk-navbar-brand:hover,
 .uk-navbar-brand:focus {
-  color: #ffffff;
+  color: var(--textcolor);
   text-decoration: none;
   outline: none;
 }

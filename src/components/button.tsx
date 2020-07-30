@@ -4,16 +4,16 @@ import './button.css'
 
 type Props = {
   children: React.ReactNode
-  full?: boolean
+  stickToBottom?: boolean
   onClick?: (e?: any) => void
   submit?: boolean
 }
 
 const Button: React.FC<Props> = (props) => {
-  const { full, submit, onClick, children } = props
+  const { stickToBottom, submit, onClick, children } = props
   return (
     <button
-      className={`uk-button${full ? ' full' : ''}`}
+      className={`uk-button${stickToBottom ? ' stickToBottom' : ''}`}
       onClick={onClick}
       type={submit ? 'submit' : 'button'}
     >
