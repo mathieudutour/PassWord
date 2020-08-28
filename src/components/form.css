@@ -3,15 +3,20 @@
 }
 .uk-form input[type='text'],
 .uk-form input[type='password'] {
-  line-height: 40px;
-  font-size: 30px;
-  border-radius: 30px;
+  font-size: 16px;
+  border-radius: 6px;
   max-width: 100%;
-  padding: 10px 35px;
+
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.06) 3px 3px 6px 0px inset,
+    rgb(255, 255, 255) -3px -3px 6px 0px inset;
+  background-color: #f2f4f8;
+
+  padding: 14px 19px;
   border: 0px;
-  background: #55b9f3;
+  /* background: #55b9f3;
   box-shadow: inset 20px 20px 60px #489dcf, inset -20px -20px 60px #62d5ff;
-  -webkit-transition: all linear 0.2s;
+  -webkit-transition: all linear 0.2s; */
   transition: all linear 0.2s;
   color: var(--textcolor);
 }
@@ -19,26 +24,6 @@
 .uk-form input[type='text']:focus,
 .uk-form input[type='password']:focus {
   outline: 0;
-}
-.uk-form :-ms-input-placeholder {
-  color: #999999 !important;
-}
-.uk-form ::-moz-placeholder {
-  color: #999999;
-}
-.uk-form ::-webkit-input-placeholder {
-  color: #999999;
-}
-.uk-form legend {
-  width: 100%;
-  padding-bottom: 15px;
-  font-size: 18px;
-  line-height: 30px;
-}
-.uk-form legend:after {
-  content: '';
-  display: block;
-  border-bottom: 1px solid #dddddd;
 }
 
 .uk-form-row:before,
@@ -62,10 +47,13 @@
   display: block;
   position: absolute;
   top: 50%;
-  right: 15px;
-  margin-top: -6px;
-  font-size: 15px;
-  line-height: 15px;
+  right: 10px;
+  margin-top: -14px;
+  font-size: 14px;
+  background-color: #f2f4f8;
+  box-shadow: rgba(0, 0, 0, 0.06) 4px 4px 8px 0px,
+    rgb(255, 255, 255) -4px -4px 8px 0px;
+  padding: 4px 8px;
   color: var(--textcolor);
   cursor: pointer;
 }
@@ -74,5 +62,5 @@
   text-decoration: none;
 }
 .uk-form-password > input {
-  padding-right: 50px !important;
+  padding-right: 80px !important;
 }

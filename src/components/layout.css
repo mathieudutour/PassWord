@@ -13,7 +13,7 @@ html {
   --positionyopposite: -20px;
   --angle: 145deg;
   --blur: 60px;
-  --textcolor: #001f3f;
+  --textcolor: #16181a;
   --textcoloropposite: #55b9f3;
   --basecolor: #55b9f3;
   --darkcolor: #489dcf;
@@ -21,7 +21,7 @@ html {
   --firstgradientcolor: #55b9f3;
   --secondgradientcolor: #55b9f3;
 
-  background: var(--basecolor);
+  background: #f2f4f8;
   color: var(--textcolor);
 }
 
@@ -150,7 +150,8 @@ select {
   width: 100%;
 }
 .uk-width-9-10 {
-  width: 90%;
+  width: 340px;
+  max-width: 90%;
 }
 .uk-container-center {
   margin-left: auto;

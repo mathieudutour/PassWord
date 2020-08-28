@@ -2,13 +2,14 @@
   -webkit-user-select: auto;
   -webkit-touch-callout: default;
   margin-bottom: 30px;
-  padding: 30px;
-  font-size: 30px;
-  background: linear-gradient(145deg, #5bc6ff, #4da7db);
-  box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+  padding: 16px 20px;
+  font-size: 14px;
+  background-color: #f2f4f8;
+  box-shadow: rgba(0, 0, 0, 0.06) 4px 4px 8px 0px,
+    rgb(255, 255, 255) -4px -4px 8px 0px;
   color: var(--textcolor);
   border: 0px;
-  border-radius: 20px;
+  border-radius: 6px;
 }
 .uk-alert > :last-child {
   margin-bottom: 0;

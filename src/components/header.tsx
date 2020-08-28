@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   return (
     <nav className="uk-navbar" role="navigation">
       <Link className="uk-navbar-brand" to="/">
-        PassWord Wallet
+        PassWord Wallet <span className="icon">🗝</span>
       </Link>
     </nav>
   )

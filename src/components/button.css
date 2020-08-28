@@ -1,32 +1,36 @@
 .uk-button {
-  background: var(--basecolor);
-  box-shadow: 20px 20px 60px var(--darkcolor),
-    -20px -20px 60px var(--lightcolor);
+  background-color: #f2f4f8;
+  box-shadow: rgba(0, 0, 0, 0.06) 4px 4px 8px 0px,
+    rgb(255, 255, 255) -4px -4px 8px 0px;
   color: var(--textcolor);
   letter-spacing: normal;
   border: 0px solid rgba(0, 0, 0, 0.06);
   display: block;
   width: 100%;
   text-align: center;
-  min-height: 40px;
-  padding: 0 15px;
-  line-height: 100px;
-  font-size: 30px;
-  border-radius: 30px;
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  border-radius: 6px;
+  transition: 0.3s ease all;
 }
 
 .uk-button:hover,
 .uk-button:focus {
-  background: linear-gradient(145deg, #4da7db, #5bc6ff);
+  box-shadow: rgba(0, 0, 0, 0.06) 8px 8px 16px 0px,
+    rgb(255, 255, 255) -8px -8px 16px 0px;
   outline: none;
 }
 .uk-button:active,
 .uk-button.uk-active {
-  background: linear-gradient(145deg, #4da7db, #5bc6ff);
+  box-shadow: rgba(0, 0, 0, 0.06) 8px 8px 16px 0px,
+    rgb(255, 255, 255) -8px -8px 16px 0px;
 }
 
 .stickToBottom {
   position: absolute;
   bottom: 30px;
-  width: 90%;
+  width: 340px;
+  max-width: 90%;
 }
