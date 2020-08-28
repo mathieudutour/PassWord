@@ -12,6 +12,8 @@
     rgb(255, 255, 255) -3px -3px 6px 0px inset;
   background-color: #f2f4f8;
 
+  -webkit-appearance: none;
+
   padding: 14px 19px;
   border: 0px;
   /* background: #55b9f3;
